@@ -6,6 +6,7 @@ AS::Notification is an extraction of ActiveSupport::Notifications from
 
 **It will track activesupport 4.x once that's released.**
 
+[![Build Status](https://travis-ci.org/bernd/as-notifications.png?branch=master)](https://travis-ci.org/bernd/as-notifications)
 [API documentation](http://rubydoc.info/github/bernd/as-notifications/master/AS/Notifications)
 
 ## Installation
