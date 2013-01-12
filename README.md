@@ -8,7 +8,11 @@ AS::Notification is an extraction of ActiveSupport::Notifications from
 
 [API documentation](http://rubydoc.info/github/bernd/as-notifications/master/AS/Notifications)
 
-# Changes to ActiveSupport::Notifications
+## Installation
+
+    $ gem install as-notifications
+
+## Changes to ActiveSupport::Notifications
 
 * Change module name from `ActiveSupport::Notifications` to
   `AS::Notifications` to avoid conflicts with activesupport
