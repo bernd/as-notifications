@@ -13,4 +13,5 @@ AS::Notification is an extraction of ActiveSupport::Notifications from
 * Change `require` calls for `active_support/notifications` to
   `as/notifications`
 * Disable loading `load_paths` file in tests
-* Revert rails/rails@45448a5 changes to avoid `thread_safe` gem dependency
+* Revert [rails/rails@45448a5](https://github.com/rails/rails/commit/45448a5)
+  changes to avoid `thread_safe` gem dependency
