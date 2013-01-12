@@ -6,6 +6,8 @@ AS::Notification is an extraction of ActiveSupport::Notifications from
 
 **It will track activesupport 4.x once that's released.**
 
+[API documentation](http://rubydoc.info/github/bernd/as-notifications/master/AS/Notifications)
+
 # Changes to ActiveSupport::Notifications
 
 * Change module name from `ActiveSupport::Notifications` to
