@@ -1,5 +1,4 @@
 require 'mutex_m'
-require 'thread_safe'
 
 module AS
   module Notifications
@@ -12,7 +11,7 @@ module AS
 
       def initialize
         @subscribers = []
-        @listeners_for = ThreadSafe::Cache.new
+        @listeners_for = {}
         super
       end
 
@@ -45,9 +44,7 @@ module AS
       end
 
       def listeners_for(name)
-        # this is correctly done double-checked locking (ThreadSafe::Cache's lookups have volatile semantics)
-        @listeners_for[name] || synchronize do
-          # use synchronisation when accessing @subscribers
+        synchronize do
           @listeners_for[name] ||= @subscribers.select { |s| s.subscribed_to?(name) }
         end
       end
