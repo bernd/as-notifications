@@ -10,8 +10,6 @@ AS::Notification is an extraction of ActiveSupport::Notifications from
 
 [API documentation](http://rubydoc.info/github/bernd/as-notifications/master/AS/Notifications)
 
-**Only works on Ruby 1.9 implementations!**
-
 ## Installation
 
     $ gem install as-notifications
