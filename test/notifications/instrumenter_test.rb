@@ -38,13 +38,15 @@ module AS
       def test_start
         instrumenter.start("foo", payload)
         assert_equal [["foo", instrumenter.id, payload]], notifier.starts
-        assert_predicate notifier.finishes, :empty?
+        # Changed from assert_predicate to assert_equal for 1.8 compat.
+        assert_equal true, notifier.finishes.empty?
       end
 
       def test_finish
         instrumenter.finish("foo", payload)
         assert_equal [["foo", instrumenter.id, payload]], notifier.finishes
-        assert_predicate notifier.starts, :empty?
+        # Changed from assert_predicate to assert_equal for 1.8 compat.
+        assert_equal true, notifier.starts.empty?
       end
     end
   end

@@ -10,12 +10,20 @@ end
 require 'active_support/core_ext/kernel/reporting'
 require 'active_support/core_ext/string/encoding'
 
-silence_warnings do
-  Encoding.default_internal = "UTF-8"
-  Encoding.default_external = "UTF-8"
+# Ruby 1.8 compat
+if "ruby".encoding_aware?
+  silence_warnings do
+    Encoding.default_internal = "UTF-8"
+    Encoding.default_external = "UTF-8"
+  end
 end
 
-require 'active_support/testing/autorun'
+# Ruby 1.8 compat
+begin
+  require 'active_support/testing/autorun'
+rescue LoadError
+  require 'test/unit'
+end
 require 'empty_bool'
 
 ENV['NO_RELOAD'] = '1'
