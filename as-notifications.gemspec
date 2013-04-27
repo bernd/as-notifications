@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'as-notifications'
-  s.version     = '0.2.0' # Will track ActiveSupport versions once 4.0 is releasesd.
+  s.version     = '1.0.0'
   s.summary     = 'Provides an instrumentation API for Ruby'
   s.description = 'Provides an instrumentation API for Ruby. It has been extracted from rails activesupport.'
 
