@@ -8,7 +8,8 @@ AS::Notification is an extraction of ActiveSupport::Notifications from
 
 [![Build Status](https://travis-ci.org/bernd/as-notifications.png?branch=master)](https://travis-ci.org/bernd/as-notifications)
 
-[API documentation](http://rubydoc.info/github/bernd/as-notifications/master/AS/Notifications)
+* [API documentation](http://rubydoc.info/github/bernd/as-notifications/master/AS/Notifications)
+* [ChangeLog](CHANGELOG.md)
 
 ## Installation
 
