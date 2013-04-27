@@ -23,3 +23,7 @@ AS::Notification is an extraction of ActiveSupport::Notifications from
 * Disable loading `load_paths` file in tests
 * Revert [rails/rails@45448a5](https://github.com/rails/rails/commit/45448a5)
   changes to avoid `thread_safe` gem dependency
+* Adjust `test/notifications/instrumenter_test.rb` and `test/abstract_unit.rb`
+  to unbreak the tests on Ruby 1.8.
+* Include `define_singleton_method` and `public_send` [backports](https://github.com/marcandre/backports)
+  to make `ActiveSupport::PerThreadRegistry` work on Ruby 1.8.

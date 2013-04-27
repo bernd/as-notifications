@@ -35,11 +35,20 @@ module AS
         assert called
       end
 
+      def test_instrument_yields_the_payload_for_further_modification
+        assert_equal 2, instrumenter.instrument("awesome") { |p| p[:result] = 1 + 1 }
+        assert_equal 1, notifier.finishes.size
+        name, _, payload = notifier.finishes.first
+        assert_equal "awesome", name
+        assert_equal Hash[:result => 2], payload
+      end
+
       def test_start
         instrumenter.start("foo", payload)
         assert_equal [["foo", instrumenter.id, payload]], notifier.starts
         # Changed from assert_predicate to assert_equal for 1.8 compat.
         assert_equal true, notifier.finishes.empty?
+
       end
 
       def test_finish
@@ -47,6 +56,7 @@ module AS
         assert_equal [["foo", instrumenter.id, payload]], notifier.finishes
         # Changed from assert_predicate to assert_equal for 1.8 compat.
         assert_equal true, notifier.starts.empty?
+
       end
     end
   end

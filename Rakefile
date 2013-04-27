@@ -50,6 +50,7 @@ task :sync do
     lib/active_support/notifications.rb
     lib/active_support/notifications/fanout.rb
     lib/active_support/notifications/instrumenter.rb
+    lib/active_support/per_thread_registry.rb
     test/empty_bool.rb
     test/abstract_unit.rb
     test/notifications_test.rb
@@ -65,13 +66,46 @@ task :sync do
 
     inplace_edit(local) do |s|
       s.gsub!('ActiveSupport::Notifications', 'AS::Notifications')
+      s.gsub!('ActiveSupport::PerThreadRegistry', 'AS::PerThreadRegistry')
       s.gsub!(%(require 'active_support/notifications), %(require 'as/notifications))
+      s.gsub!(%(require 'active_support/per_thread_registry), %(require 'as/per_thread_registry))
       s.gsub!('module ActiveSupport', 'module AS')
       s.gsub!(%(require 'abstract_unit'), %(require 'abstract_unit'\nrequire 'as/notifications'))
       s.gsub!(
         %(require File.expand_path('../../../load_paths', __FILE__)),
         %(#require File.expand_path('../../../load_paths', __FILE__))
       )
+      s.gsub!(%(  module PerThreadRegistry), <<-__GSUB)
+  module PerThreadRegistry
+    if RUBY_VERSION < '1.9'
+      require 'as/backports/define_singleton_method'
+      require 'as/backports/public_send'
+    end
+      __GSUB
+      s.gsub!(%(assert_predicate notifier.finishes, :empty?), <<-__GSUB)
+# Changed from assert_predicate to assert_equal for 1.8 compat.
+        assert_equal true, notifier.finishes.empty?
+      __GSUB
+      s.gsub!(%(assert_predicate notifier.starts, :empty?), <<-__GSUB)
+# Changed from assert_predicate to assert_equal for 1.8 compat.
+        assert_equal true, notifier.starts.empty?
+      __GSUB
+      s.gsub!(
+        %(Encoding.default_internal = "UTF-8"),
+        %(Encoding.default_internal = "UTF-8" if "ruby".encoding_aware?)
+      )
+      s.gsub!(
+        %(Encoding.default_external = "UTF-8"),
+        %(Encoding.default_internal = "UTF-8" if "ruby".encoding_aware?)
+      )
+      s.gsub!(%(require 'active_support/testing/autorun'), <<-__GSUB)
+# Ruby 1.8 compat
+begin
+  require 'active_support/testing/autorun'
+rescue LoadError
+  require 'test/unit'
+end
+      __GSUB
     end
   end
 

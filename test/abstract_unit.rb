@@ -10,12 +10,9 @@ end
 require 'active_support/core_ext/kernel/reporting'
 require 'active_support/core_ext/string/encoding'
 
-# Ruby 1.8 compat
-if "ruby".encoding_aware?
-  silence_warnings do
-    Encoding.default_internal = "UTF-8"
-    Encoding.default_external = "UTF-8"
-  end
+silence_warnings do
+  Encoding.default_internal = "UTF-8" if "ruby".encoding_aware?
+  Encoding.default_internal = "UTF-8" if "ruby".encoding_aware?
 end
 
 # Ruby 1.8 compat
@@ -24,10 +21,13 @@ begin
 rescue LoadError
   require 'test/unit'
 end
+
 require 'empty_bool'
 
 ENV['NO_RELOAD'] = '1'
 require 'active_support'
+
+Thread.abort_on_exception = true
 
 # Show backtraces for deprecated behavior for quicker cleanup.
 ActiveSupport::Deprecation.debug = true
