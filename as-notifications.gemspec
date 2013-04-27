@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.email    = 'bernd@tuneafish.de'
   s.homepage = 'https://github.com/bernd/as-notifications'
 
-  s.files        = Dir['MIT-LICENSE', 'README.rdoc', 'lib/**/*']
+  s.files        = Dir['MIT-LICENSE', 'README.md', 'lib/**/*']
   s.require_path = 'lib'
 
   s.rdoc_options.concat ['--encoding',  'UTF-8']
