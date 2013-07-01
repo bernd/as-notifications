@@ -1,3 +1,8 @@
+# v1.0.1 (2013-07-01)
+* Update to ActiveSupport::Notifications rev e93e255.
+  * (rails/rails@e93e255) Documentation: Notifications queue does not run in a thread.
+  * (rails/rails@e539228) Bug fix: Evented notification subscribers can handle published events
+
 # v1.0.0 (2013-04-27)
 * Update to ActiveSupport::Notifications rev 9e82ffc.
 * Include README.md file in the gem.
