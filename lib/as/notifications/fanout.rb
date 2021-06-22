@@ -15,8 +15,8 @@ module AS
         super
       end
 
-      def subscribe(pattern = nil, callback = nil, &block)
-        subscriber = Subscribers.new pattern, callback || block
+      def subscribe(pattern = nil, callable = nil, &block)
+        subscriber = Subscribers.new pattern, callable || block
         synchronize do
           @subscribers << subscriber
           @listeners_for.clear
