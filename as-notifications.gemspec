@@ -1,11 +1,9 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'as-notifications'
-  s.version     = '1.0.1'
+  s.version     = '1.0.2'
   s.summary     = 'Provides an instrumentation API for Ruby'
   s.description = 'Provides an instrumentation API for Ruby. It has been extracted from rails activesupport.'
-
-#  s.required_ruby_version = '>= 1.9.3'
 
   s.license = 'MIT'
 
