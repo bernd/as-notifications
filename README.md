@@ -2,11 +2,9 @@ AS::Notification -- Provides an instrumentation API for Ruby
 ------------------------------------------------------------
 
 AS::Notification is an extraction of ActiveSupport::Notifications from
-[Rails](https://github.com/rails/rails/tree/master/activesupport).
+[Rails](https://github.com/rails/rails/tree/main/activesupport).
 
-[![Build Status](https://travis-ci.org/bernd/as-notifications.png?branch=master)](https://travis-ci.org/bernd/as-notifications)
-
-* [API documentation](http://rubydoc.info/github/bernd/as-notifications/master/AS/Notifications)
+* [API documentation](http://rubydoc.info/github/bernd/as-notifications/main/AS/Notifications)
 * [ChangeLog](CHANGELOG.md)
 
 ## Installation
