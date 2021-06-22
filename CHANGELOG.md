@@ -1,3 +1,6 @@
+# v1.0.2 (2021-06-22)
+* Ruby 3.0 compatibility. (#3)
+
 # v1.0.1 (2013-07-01)
 * Update to ActiveSupport::Notifications rev e93e255.
   * (rails/rails@e93e255) Documentation: Notifications queue does not run in a thread.
