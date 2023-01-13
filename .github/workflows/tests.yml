@@ -21,7 +21,7 @@ jobs:
           - "jruby-9.2.19.0"
           - "truffleruby-21.1.0"
     steps:
-      - uses: "actions/checkout@v2"
+      - uses: "actions/checkout@v3"
       - uses: "ruby/setup-ruby@v1"
         with:
           ruby-version: "${{ matrix.ruby_version }}"
