@@ -14,5 +14,7 @@ Gem::Specification.new do |s|
   s.files        = Dir['MIT-LICENSE', 'README.md', 'lib/**/*']
   s.require_path = 'lib'
 
-  s.rdoc_options.concat ['--encoding',  'UTF-8']
+  s.rdoc_options.concat ['--encoding', 'UTF-8']
+
+  s.add_runtime_dependency 'mutex_m'
 end
